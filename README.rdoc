@@ -14,7 +14,7 @@ SubdomainFu is available both as a traditional plugin and a GemPlugin. To
 install it as a traditional plugin:
 
   script/plugin install git://github.com/ramontayag/subdomain-fu.git
-  
+
 To use it as a gem, add it to your Gemfile. Until Rails 3 is officially released,
 the Rails 3 version of the plugin is only available as a prerelease gem:
 
@@ -29,8 +29,8 @@ option both in named and non-named routes as well as in generated resources rout
 Let's say my domain is 'intridea.com'. Here are some examples of the use of the :subdomain
 option:
 
-  url_for(:controller => "my_controller", 
-          :action => "my_action", 
+  url_for(:controller => "my_controller",
+          :action => "my_action",
           :subdomain => "awesome") # => http://awesome.intridea.com/my_controller/my_action
 
 Now let's say I'm at http://awesome.intridea.com/ and I want back to the root.
@@ -44,7 +44,7 @@ again:
 
   users_path(:subdomain => "fun") # => http://fun.intridea.com/users
   users_path(:subdomain => false) # => /users
-                              
+
 In this way you can rest assured that you will never misdirect your links to the
 same subdomain when you meant to change it.
 
@@ -57,7 +57,7 @@ You have access to current_subdomain and current_domain methods.
 [current_domain] returns the domain excluding for the subdomain, including the TLD. For the URL http://awesome.website.stuff.example.com, it will return "website.stuff.example.com"
 
 If what you really want is the entire domain, then use <tt>request.domain</tt> in
-your controllers.  The purpose of current_domain is to only strip off the first 
+your controllers.  The purpose of current_domain is to only strip off the first
 subdomain, if any, and return what's left.
 
 == Configuration
@@ -73,14 +73,14 @@ Some available options are enumerated below.
 
 === tld_size
 
-A hash for each environment of the size of the top-level domain name. 
+A hash for each environment of the size of the top-level domain name.
 (something.com = 1, localhost = 0, etc.)
 
   config.tld_size = 1 # sets for current environment
   config.tld_sizes = {:development => 0,
                            :test => 0,
                            :production => 1} # set all at once (also the defaults)
-                         
+
 === mirrors
 
 Mirrors are the subdomains that are equivalent to no subdomain (i.e. they 'mirror')
@@ -102,7 +102,7 @@ will default to the preferred mirror.
 == Routing (Deprecated)
 
 Subdomain constraint routing has been removed from the scope of this plugin as Rails 3
-provides the functionality by default. For more info, see this blog post: 
+provides the functionality by default. For more info, see this blog post:
 http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/
 
 == Resources
@@ -110,5 +110,5 @@ http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/
 * GitHub Repository: http://github.com/intridea/subdomain-fu
 * RDocs: http://rdoc.info/projects/intridea/subdomain-fu
 
-Copyright (c) 2008-2010 Michael Bleigh (http://www.mbleigh.com/) and 
+Copyright (c) 2008-2010 Michael Bleigh (http://www.mbleigh.com/) and
 Intridea, Inc. (http://www.intridea.com/). Released under the MIT license

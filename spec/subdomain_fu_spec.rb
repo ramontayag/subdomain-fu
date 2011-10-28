@@ -175,7 +175,7 @@ describe "SubdomainFu" do
       request = mock("request", :subdomains => [], :domain => "", :port_string => "")
       SubdomainFu.current_domain(request).should == ""
     end
-    
+
     it "should return an IP address if there is only an IP address" do
       request = mock("request", :subdomains => [], :domain => "127.0.0.1", :port_string => "")
       SubdomainFu.current_domain(request).should == "127.0.0.1"
